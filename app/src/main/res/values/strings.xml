@@ -6,5 +6,7 @@
     <string name="action_settings">Settings</string>
     <string name="facebook_app_id">1301659863254249</string>
     <string name="CerrarSesion">Cerrar Sesion </string>
+    <string name="registrateCon">Regístrate con:</string>
+
 
 </resources>
