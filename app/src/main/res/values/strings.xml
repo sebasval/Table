@@ -7,6 +7,13 @@
     <string name="facebook_app_id">1301659863254249</string>
     <string name="CerrarSesion">Cerrar Sesion </string>
     <string name="registrateCon">Regístrate con:</string>
+    <string name="balances_molares">Balances Molares</string>
+    <string name="conversion_y_reactor">Conversión y Reactor</string>
+    <string name="diseño_de_reactores">Diseño de Reactores</string>
+    <string name="reacciones_multiples">Reacciones Multiples</string>
+    <string name="herramientas">Herramientas</string>
+    <string name="calculadoras">Calcular Propiedades</string>
+    <string name="conversion_de_unidades">Conversion de unidades</string>
 
 
 </resources>
