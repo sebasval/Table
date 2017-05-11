@@ -14,6 +14,8 @@
     <string name="herramientas">Herramientas</string>
     <string name="calculadoras">Calcular Propiedades</string>
     <string name="conversion_de_unidades">Conversion de unidades</string>
+    <string name="stream">En vivo</string>
+    <string name="forum">Blog</string>
 
 
 </resources>
