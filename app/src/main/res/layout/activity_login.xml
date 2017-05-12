@@ -50,16 +50,38 @@
         android:padding="10dp"
         android:layout_marginTop="10dp"
         android:typeface="monospace"/>
-    <Button
-        android:text="@string/registrarse"
-        android:id="@+id/register"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@drawable/buttonshape"
-        android:textStyle="normal|bold|italic"
-        android:textAllCaps="false"
-        android:textSize="19sp"/>
+        android:weightSum="2">
+        <Button
+            android:text="@string/ingresar"
+            android:id="@+id/signIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/buttonshape"
+            android:textStyle="normal|bold|italic"
+            android:textAllCaps="false"
+            android:textSize="19sp"
+            android:layout_weight="1"
+            />
+        <Button
+            android:text="@string/registrarse"
+            android:id="@+id/register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/buttonshape"
+            android:textStyle="normal|bold|italic"
+            android:textAllCaps="false"
+            android:textSize="19sp"
+            android:layout_weight="1"
+            />
+
+    </LinearLayout>
+
     <com.facebook.login.widget.LoginButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
