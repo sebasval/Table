@@ -14,12 +14,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.facebook.AccessToken;
 import com.facebook.login.LoginManager;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    FirebaseAuth.AuthStateListener mAuthStateListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,10 +49,10 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
 
-        //Verificacion Login
+        /*Verificacion Login
         if (AccessToken.getCurrentAccessToken() == null){
             goLoginScreen();
-        }
+        }*/
     }
 
     private void goLoginScreen() {
@@ -86,6 +87,8 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
+            firebaseAuth.signOut();
             LoginManager.getInstance().logOut();
             goLoginScreen();
             return true;

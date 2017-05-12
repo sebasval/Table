@@ -39,7 +39,8 @@
         android:inputType="textEmailAddress"
         android:background="@drawable/input_outline"
         android:padding="10dp"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        android:textAlignment="center" />
     <EditText
         android:hint="@string/contrasena"
         android:id="@+id/passLogin"
@@ -49,7 +50,8 @@
         android:background="@drawable/input_outline"
         android:padding="10dp"
         android:layout_marginTop="10dp"
-        android:typeface="monospace"/>
+        android:typeface="monospace"
+        android:textAlignment="center" />
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
