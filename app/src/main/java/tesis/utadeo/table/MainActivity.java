@@ -92,6 +92,9 @@ public class MainActivity extends AppCompatActivity
             LoginManager.getInstance().logOut();
             goLoginScreen();
             return true;
+        } else if (id == R.id.publish){
+            Intent intent = new Intent(MainActivity.this, Publish.class);
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);

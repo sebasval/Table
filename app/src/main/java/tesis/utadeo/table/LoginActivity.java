@@ -92,8 +92,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     Log.i("SESION","sesion iniciada correctamente!!");
                 }else {
                     Log.e("SESION",task.getException().getMessage()+"");
-                    Toast.makeText(LoginActivity.this, "Usuario o contraseña invalidos ó " +
-                            "esta cuenta de correo ya existe", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivity.this, "Usuario y contraseña invalidos ó " +
+                            "esta cuenta ya esta en uso", Toast.LENGTH_LONG).show();
                 }
             }
         });
