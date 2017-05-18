@@ -23,6 +23,9 @@
     <string name="dominio">\@table.com</string>
     <string name="registrarses">Registrarse !!!</string>
     <string name="usuarios">Usuario</string>
+    <string name="comentario">Di algo bonito .......</string>
+    <string name="titulocomentario">Titulo del comentario</string>
+    <string name="comentar">Comentar !!!</string>
 
 
 </resources>
