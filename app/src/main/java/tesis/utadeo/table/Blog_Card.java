@@ -8,6 +8,16 @@ public class Blog_Card {
 
     private String title, desc, image, uid;
 
+    public Blog_Card() {
+    }
+
+    public Blog_Card(String title, String desc, String image, String uid) {
+        this.title = title;
+        this.desc = desc;
+        this.image = image;
+        this.uid = uid;
+    }
+
     public String getTitle() {
         return title;
     }
