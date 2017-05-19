@@ -9,6 +9,8 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,6 +22,8 @@ import com.google.firebase.auth.FirebaseAuth;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private RecyclerView mBlogList;
+
     FirebaseAuth.AuthStateListener mAuthStateListener;
 
     @Override
@@ -29,6 +33,11 @@ public class MainActivity extends AppCompatActivity
         setTitle("Noticias");
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        mBlogList = (RecyclerView) findViewById(R.id.blog_list);
+        mBlogList.setHasFixedSize(true);
+        mBlogList.setLayoutManager(new LinearLayoutManager(this));
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -53,6 +62,11 @@ public class MainActivity extends AppCompatActivity
         if (AccessToken.getCurrentAccessToken() == null){
             goLoginScreen();
         }*/
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
     }
 
     private void goLoginScreen() {

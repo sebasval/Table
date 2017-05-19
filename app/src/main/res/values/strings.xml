@@ -26,6 +26,8 @@
     <string name="comentario">Di algo bonito .......</string>
     <string name="titulocomentario">Titulo del comentario</string>
     <string name="comentar">Comentar !!!</string>
+    <string name="post_title_goas_here">Post Title Goas Here</string>
+    <string name="description_goas_here">Description Goas Here</string>
 
 
 </resources>
