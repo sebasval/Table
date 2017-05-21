@@ -77,6 +77,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onStart() {
         super.onStart();
+
         FirebaseRecyclerAdapter<Blog_Card,BlogViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Blog_Card, BlogViewHolder>(
                 Blog_Card.class,
                 R.layout.blog_row,

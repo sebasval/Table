@@ -3,6 +3,7 @@ package tesis.utadeo.table;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -17,7 +18,7 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    EditText registerEmail, registerPass;
+    EditText registerEmail, registerPass,confirmPass;
     Button buttonRegisterAct;
 
     @Override
@@ -28,6 +29,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         registerEmail = (EditText) findViewById(R.id.userRegister);
         registerPass = (EditText) findViewById(R.id.passRegister);
+        confirmPass = (EditText) findViewById(R.id.passRegisterTwo);
 
         buttonRegisterAct = (Button) findViewById(R.id.buttonRegister);
         buttonRegisterAct.setOnClickListener(new View.OnClickListener() {
@@ -36,12 +38,21 @@ public class RegisterActivity extends AppCompatActivity {
 
                 String emailRegisterAct = registerEmail.getText().toString();
                 String passRegisterAct = registerPass.getText().toString();
+                String confirmPassAct = confirmPass.getText().toString();
                 String dominio = "@table.com";
-                String userComplete = emailRegisterAct + dominio;
-                Registrar(userComplete,passRegisterAct);
-                registerEmail.setText("");
-                registerPass.setText("");
-                Toast.makeText(RegisterActivity.this, "Usuario creado correctamente", Toast.LENGTH_SHORT).show();
+                if (!TextUtils.isEmpty(emailRegisterAct) && !TextUtils.isEmpty(passRegisterAct) && !TextUtils.isEmpty(confirmPassAct)
+                        && passRegisterAct == confirmPassAct){
+                    String userComplete = emailRegisterAct + dominio;
+                    Registrar(userComplete,passRegisterAct);
+                    registerEmail.setText("");
+                    registerPass.setText("");
+                    confirmPass.setText("");
+                    Toast.makeText(RegisterActivity.this, "Usuario creado correctamente", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(RegisterActivity.this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
+                }
+
+
             }
         });
 

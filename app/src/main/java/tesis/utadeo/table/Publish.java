@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -30,7 +31,9 @@ public class Publish extends AppCompatActivity {
     private Button mSubmitBtn;
     private Uri mImageUri = null;
     private StorageReference mStorage;
-    private DatabaseReference mDatabase;
+    private DatabaseReference mDatabase, mDatabseUser;
+    private FirebaseAuth mAuth;
+    private FirebaseUser mCurrentUser;
 
     private ProgressDialog mProgress;
 
@@ -41,8 +44,12 @@ public class Publish extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setTitle("Comentario");
 
+        mAuth = FirebaseAuth.getInstance();
+        mCurrentUser = mAuth.getCurrentUser();
+
         mStorage = FirebaseStorage.getInstance().getReference();
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Blog");
+        mDatabseUser = FirebaseDatabase.getInstance().getReference().child("Users").child(mCurrentUser.getUid());
 
         mSelectImage = (ImageButton) findViewById(R.id.imageSelect);
         mPostTitle = (EditText) findViewById(R.id.editTextTitle);
@@ -83,14 +90,16 @@ public class Publish extends AppCompatActivity {
             filepath.putFile(mImageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    Uri downloadUrl = taskSnapshot.getDownloadUrl();
-                    DatabaseReference newPost = mDatabase.push();
+                    final Uri downloadUrl = taskSnapshot.getDownloadUrl();
+                    final DatabaseReference newPost = mDatabase.push();
+
                     newPost.child("title").setValue(title_val);
                     newPost.child("desc").setValue(des_val);
                     newPost.child("image").setValue(downloadUrl.toString());
-                    newPost.child("uid").setValue(FirebaseAuth.getInstance().getCurrentUser().getEmail());
-                    mProgress.dismiss();
+                    newPost.child("uid").setValue(mCurrentUser.getEmail());
                     startActivity(new Intent(Publish.this,MainActivity.class));
+                    mProgress.dismiss();
+
                 }
             });
         }else {

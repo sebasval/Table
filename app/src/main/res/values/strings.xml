@@ -28,6 +28,8 @@
     <string name="comentar">Comentar !!!</string>
     <string name="post_title_goas_here">Post Title Goas Here</string>
     <string name="description_goas_here">Description Goas Here</string>
+    <string name="confirmarPass">Confirmar Contraseña</string>
+    <string name="contrasenaRegis">Contraseña numeros y letras</string>
 
 
 </resources>
