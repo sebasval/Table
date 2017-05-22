@@ -43,10 +43,13 @@ public class MainActivity extends AppCompatActivity
 
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Blog");
 
+        LinearLayoutManager llm = new LinearLayoutManager(getApplicationContext());
+        llm.setReverseLayout(true);
+        llm.setStackFromEnd(true);
+
         mBlogList = (RecyclerView) findViewById(R.id.blog_list);
         mBlogList.setHasFixedSize(true);
-        mBlogList.setLayoutManager(new LinearLayoutManager(this));
-
+        mBlogList.setLayoutManager(llm);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
