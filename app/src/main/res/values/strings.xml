@@ -30,6 +30,7 @@
     <string name="description_goas_here">Description Goas Here</string>
     <string name="confirmarPass">Confirmar Contraseña</string>
     <string name="contrasenaRegis">Contraseña numeros y letras</string>
+    <string name="publico">publicó</string>
 
 
 </resources>

@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -24,9 +25,8 @@
             android:id="@+id/post_title"
             android:text="@string/post_title_goas_here"
             android:padding="15dp"
-            android:textSize="16dp"
+            android:textSize="16sp"
             android:textStyle="bold"/>
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
