@@ -55,19 +55,6 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <EditText
-        android:hint="@string/confirmarPass"
-        android:id="@+id/passRegisterTwo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:typeface="monospace"
-        android:inputType="textPassword"
-        android:background="@drawable/input_outline"
-        android:padding="10dp"
-        android:layout_below="@+id/passRegister"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="17dp" />
 
     <Button
         android:textColor="#FFFFFF"
@@ -77,10 +64,10 @@
         android:id="@+id/buttonRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/passRegisterTwo"
+        android:layout_marginTop="32dp"
+        android:layout_below="@+id/passRegister"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="17dp" />
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>

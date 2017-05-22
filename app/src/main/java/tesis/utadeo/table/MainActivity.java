@@ -19,7 +19,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.facebook.login.LoginManager;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -67,11 +66,6 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-
-        /*Verificacion Login
-        if (AccessToken.getCurrentAccessToken() == null){
-            goLoginScreen();
-        }*/
     }
 
     @Override
@@ -161,9 +155,8 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
+            FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
             firebaseAuth.signOut();
-            LoginManager.getInstance().logOut();
             goLoginScreen();
             return true;
         } else if (id == R.id.publish){

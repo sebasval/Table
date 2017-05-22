@@ -11,9 +11,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.facebook.AccessToken;
-import com.facebook.CallbackManager;
-import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -38,8 +35,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private Button buttonRegister, buttonSignIn;
     private EditText ediTextEmail, editTextPass;
-    private LoginButton loginButton;
-    private CallbackManager callbackManager;
     private FirebaseAuth mAuth;
     FirebaseAuth.AuthStateListener mAuthStateListener;
     private SignInButton mGoogleBtn;
@@ -58,7 +53,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mProgress = new ProgressDialog(this);
         mAuth = FirebaseAuth.getInstance();
         mGoogleBtn = (SignInButton)findViewById(R.id.googleBtn);
-        callbackManager = CallbackManager.Factory.create();
         ediTextEmail = (EditText) findViewById(R.id.userLogin);
         editTextPass = (EditText) findViewById(R.id.passLogin);
         buttonSignIn = (Button) findViewById(R.id.signIn);
@@ -70,10 +64,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mDatabaseUsers = FirebaseDatabase.getInstance().getReference().child("users");
         mDatabaseUsers.keepSynced(true);
 
-        if (AccessToken.getCurrentAccessToken() != null){
-            goMainScreen();
-            Toast.makeText(this, "Inicio de sesion con Facebook", Toast.LENGTH_SHORT).show();
-        }
 
         mAuthStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -143,7 +133,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        callbackManager.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == RC_SIGN_IN) {
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
